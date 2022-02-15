@@ -1,0 +1,2 @@
+# clinicians_monitoring
+The clinicians will be remotely monitoring the patients from a portal. This portal needs to be able to showcase patients' daily measurements (e.g., heart rate / blood pressure / weight). Measurements will be manually entered via a mobile app and then sent to our server APIs. If an abnormal reading is detected, clinicians will be able to see what happened via the web portal.

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'measurements.apps.MeasurementsConfig',
 ]
 
 MIDDLEWARE = [

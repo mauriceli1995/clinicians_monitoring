@@ -5,7 +5,7 @@ The clinicians will be remotely monitoring the patients from a portal. This port
 
 :heavy_check_mark: Administrators can register new clinician accounts into the system
 
-:white_large_square: Patients can submit measurements via API
+:heavy_check_mark: Patients can submit measurements via API
 
 :white_large_square: Patients can view historical measurements via API
 

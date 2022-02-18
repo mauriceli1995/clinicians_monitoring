@@ -1,2 +1,26 @@
 # clinicians_monitoring
 The clinicians will be remotely monitoring the patients from a portal. This portal needs to be able to showcase patients' daily measurements (e.g., heart rate / blood pressure / weight). Measurements will be manually entered via a mobile app and then sent to our server APIs. If an abnormal reading is detected, clinicians will be able to see what happened via the web portal.
+
+:heavy_check_mark:  Clinicians can register new patient accounts into the system
+
+:heavy_check_mark: Administrators can register new clinician accounts into the system
+
+:white_large_square: Patients can submit measurements via API
+
+:white_large_square: Patients can view historical measurements via API
+
+:white_large_square: Clinicians can see a table of all patients with their latest measurements
+
+:white_large_square: Clinicians can view a patient dashboard showing history of patient measurements and alerts
+
+:white_large_square: Clinicians can set thresholds to detect abnormal measurements for each patient
+
+:white_large_square: Abnormal readings will generate an alert for clinicians to review
+
+:white_large_square: Clinicians will be notified via email when an alert is generated
+
+:white_large_square: Clinicians can only see patients that they registered themselves or are otherwise assigned to them
+
+:white_large_square: User management should be managed in a separate Django app
+
+:white_large_square: Measurements/Thresholds/Alerts should be managed in another separate Django app

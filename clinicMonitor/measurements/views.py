@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils import timezone
 from .models import Measurement
 from users.models import Patient, Clinician
+from alerts.views import checkAbnormalReading
 
 def fillInMeasurementPage(request, patient_id):
     context = {'patient_id': patient_id}
@@ -39,11 +40,15 @@ def clinicianViewMeasurements(request, clinician_id):
     clinician = Clinician.objects.get(pk = clinician_id)
     patient_list = Patient.objects.filter(clinician = clinician_id).values_list('id', flat=True)
     result_list = {}
-    for patient in patient_list:
-        patient_name = Patient.objects.get(pk = patient)
-        measurement_list = Measurement.objects.filter(patient = patient).order_by('-submitted_date')[:1]
+    abnormal_patient_list = []
+    for patient_id in patient_list:
+        patient_name = Patient.objects.get(pk = patient_id)
+        # check whether abnormal reading exists
+        if checkAbnormalReading(request, patient_id) == True:
+            abnormal_patient_list.append(patient_name)
+        measurement_list = Measurement.objects.filter(patient = patient_id).order_by('-submitted_date')[:1]
         result_list[patient_name] = measurement_list
-    context = {'result_list': result_list, 'clinician_name': clinician.clinician_name, 'clinician_id': clinician_id}
+    context = {'abnormal_patient_list': abnormal_patient_list, 'result_list': result_list, 'clinician_name': clinician.clinician_name, 'clinician_id': clinician_id}
     return render(request, 'measurements/clinicianViewMeasurements.html', context)
 
 def clinicianViewPatientDetail(request, clinician_id, patient_id):

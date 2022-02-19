@@ -5,6 +5,9 @@
 
 <body>
   <h2>Hello {{clinician_name}}</h2>
+  {% for abnormal_patient in abnormal_patient_list %}
+  <h3 style="color:red">Alert: {{abnormal_patient.patient_name}} got abnormal reading !!!!!</h3>
+  {% endfor %}
   {% if result_list %}
   <ul>
     {% for patient, measurement in result_list.items %}

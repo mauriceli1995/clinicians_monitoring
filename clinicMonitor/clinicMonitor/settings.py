@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'measurements.apps.MeasurementsConfig',
     'thresholds.apps.ThresholdsConfig',
+    'alerts.apps.AlertsConfig',
 ]
 
 MIDDLEWARE = [

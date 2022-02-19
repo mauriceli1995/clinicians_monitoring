@@ -10,10 +10,4 @@ urlpatterns = [
     path('submitThreshold/<int:patient_id>/', views.submitThreshold, name='submitThreshold'),
     # ex: /thresholds/submitMeasurementSuccess/1/
     path('settingThresholdSuccess/<int:patient_id>/', views.settingThresholdSuccess, name='settingThresholdSuccess'),
-    # # ex: /measurements/patientViewMeasurement/1/
-    # path('patientViewMeasurement/<int:patient_id>/', views.patientViewMeasurement, name='patientViewMeasurement'),
-    # # ex: /measurements/clinicianViewMeasurements/1/
-    # path('clinicianViewMeasurements/<int:clinician_id>/', views.clinicianViewMeasurements, name='clinicianViewMeasurements'),
-    # # ex: /measurements/clinicianViewPatientDetail/1/1/
-    # path('clinicianViewPatientDetail/<int:clinician_id>/<int:patient_id>/', views.clinicianViewPatientDetail, name='clinicianViewPatientDetail'),
 ]

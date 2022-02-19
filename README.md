@@ -13,7 +13,7 @@ The clinicians will be remotely monitoring the patients from a portal. This port
 
 :white_large_square: Clinicians can view a patient dashboard showing history of patient measurements and alerts
 
-:white_large_square: Clinicians can set thresholds to detect abnormal measurements for each patient
+:heavy_check_mark: Clinicians can set thresholds to detect abnormal measurements for each patient
 
 :white_large_square: Abnormal readings will generate an alert for clinicians to review
 

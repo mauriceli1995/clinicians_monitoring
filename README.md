@@ -23,4 +23,4 @@ The clinicians will be remotely monitoring the patients from a portal. This port
 
 :heavy_check_mark: User management should be managed in a separate Django app
 
-:white_large_square: Measurements/Thresholds/Alerts should be managed in another separate Django app
+:heavy_check_mark: Measurements/Thresholds/Alerts should be managed in another separate Django app

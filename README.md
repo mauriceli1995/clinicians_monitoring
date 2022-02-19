@@ -17,7 +17,7 @@ The clinicians will be remotely monitoring the patients from a portal. This port
 
 :heavy_check_mark: Abnormal readings will generate an alert for clinicians to review
 
-:white_large_square: Clinicians will be notified via email when an alert is generated
+:heavy_check_mark: Clinicians will be notified via email when an alert is generated
 
 :heavy_check_mark: Clinicians can only see patients that they registered themselves or are otherwise assigned to them
 

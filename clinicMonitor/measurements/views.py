@@ -35,7 +35,7 @@ def patientViewMeasurement(request, patient_id):
     context = {'measurement_list': measurement_list, 'patient_id': patient_id, 'patient_name': patient.patient_name}
     return render(request, 'measurements/patientViewMeasurement.html', context)
 
-def clinicianViewMeasurement(request, clinician_id):
+def clinicianViewMeasurements(request, clinician_id):
     clinician = Clinician.objects.get(pk = clinician_id)
     patient_list = Patient.objects.filter(clinician = clinician_id).values_list('id', flat=True)
     result_list = {}
@@ -43,5 +43,13 @@ def clinicianViewMeasurement(request, clinician_id):
         patient_name = Patient.objects.get(pk = patient)
         measurement_list = Measurement.objects.filter(patient = patient).order_by('-submitted_date')[:1]
         result_list[patient_name] = measurement_list
-    context = {'result_list': result_list, 'clinician_name': clinician.clinician_name}
-    return render(request, 'measurements/clinicianViewMeasurement.html', context)
+    context = {'result_list': result_list, 'clinician_name': clinician.clinician_name, 'clinician_id': clinician_id}
+    return render(request, 'measurements/clinicianViewMeasurements.html', context)
+
+def clinicianViewPatientDetail(request, clinician_id, patient_id):
+    clinician = Clinician.objects.get(pk = clinician_id)
+    selected_measurement_list = Measurement.objects.filter(patient = patient_id)
+    measurement_list = selected_measurement_list.order_by('-submitted_date')
+    patient = Patient.objects.get(pk=patient_id)
+    context = {'measurement_list': measurement_list, 'patient_name': patient.patient_name}
+    return render(request, 'measurements/clinicianViewPatientDetail.html', context)

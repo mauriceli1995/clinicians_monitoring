@@ -8,7 +8,8 @@
   {% if result_list %}
   <ul>
     {% for patient, measurement in result_list.items %}
-    <h3>Patient Name: {{patient.patient_name}}</h3>
+    <a href="{% url 'measurements:clinicianViewPatientDetail' clinician_id patient.id %}">Patient Name:
+      {{patient.patient_name}}</a>
     {% for item in measurement %}
     <li>
       <div>

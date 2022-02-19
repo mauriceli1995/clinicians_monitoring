@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<h1>{{patient_name}}'s Detail</h1>
+
+<body>
+  {% if measurement_list %}
+  <ul>
+    {% for measurement in measurement_list %}
+    <li>
+      <div>
+        Heart Rate (BPM): {{ measurement.heart_rate }}
+        <br>
+        Blood Pressure (mmHg): {{ measurement.blood_pressure }}
+        <br>
+        Body Weight(kg): {{ measurement.body_weight }}
+        <br>
+        Submitted Date: {{ measurement.submitted_date }}
+        <br><br>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No measurements are recoards.</p>
+  {% endif %}
+</body>
+
+</html>

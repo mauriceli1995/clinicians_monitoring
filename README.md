@@ -24,3 +24,11 @@ The clinicians will be remotely monitoring the patients from a portal. This port
 :heavy_check_mark: User management should be managed in a separate Django app
 
 :heavy_check_mark: Measurements/Thresholds/Alerts should be managed in another separate Django app
+
+# Questions
+
+1. If you had more time, what would you change or focus more on?
+
+2. Which part of the solution consumed the most amount of time?
+
+3. What suggestions do you have for stakeholders in this context that they may not have thought of?

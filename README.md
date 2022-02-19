@@ -7,7 +7,7 @@ The clinicians will be remotely monitoring the patients from a portal. This port
 
 :heavy_check_mark: Patients can submit measurements via API
 
-:white_large_square: Patients can view historical measurements via API
+:heavy_check_mark: Patients can view historical measurements via API
 
 :white_large_square: Clinicians can see a table of all patients with their latest measurements
 
@@ -21,6 +21,6 @@ The clinicians will be remotely monitoring the patients from a portal. This port
 
 :white_large_square: Clinicians can only see patients that they registered themselves or are otherwise assigned to them
 
-:white_large_square: User management should be managed in a separate Django app
+:heavy_check_mark: User management should be managed in a separate Django app
 
 :white_large_square: Measurements/Thresholds/Alerts should be managed in another separate Django app

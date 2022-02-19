@@ -11,5 +11,3 @@ class Measurement(models.Model):
     patient = models.ForeignKey('users.Patient', on_delete=models.CASCADE)
     def __str__(self):
         return '%s, %s, %s, %s, %s' % (self.heart_rate, self.blood_pressure, self.body_weight, self.submitted_date, self.patient)
-    # def was_published_recently(self):
-    #     return self.pub_date >= timezone.now() - datetime.timedelta(days=1)

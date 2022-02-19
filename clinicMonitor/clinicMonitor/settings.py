@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'users.apps.UsersConfig',
     'measurements.apps.MeasurementsConfig',
+    'thresholds.apps.ThresholdsConfig',
 ]
 
 MIDDLEWARE = [

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('thresholds/', include('thresholds.urls')),
     path('measurements/', include('measurements.urls')),
     path('users/', include('users.urls')),
     path('admin/', admin.site.urls),

@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.utils import timezone
 from .models import Measurement
 from users.models import Patient, Clinician
-from alerts.views import checkAbnormalReading
+from alerts.views import checkAbnormalReading, checkAbnormalReadingEmail
 
 def fillInMeasurementPage(request, patient_id):
     context = {'patient_id': patient_id}
@@ -27,6 +27,9 @@ def submitMeasurement(request, patient_id):
         return render(request,'measurements/fillInMeasurementPage.html')
 
 def submitMeasurementSuccess(request, patient_id):
+    patient = Patient.objects.get(pk=patient_id)
+    clinician_id = patient.clinician_id
+    checkAbnormalReadingEmail(request, patient_id, clinician_id)
     return HttpResponse("Measurement submitted by patient %s" % patient_id)
 
 def patientViewMeasurement(request, patient_id):

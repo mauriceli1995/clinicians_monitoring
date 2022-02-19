@@ -27,3 +27,9 @@ def submitMeasurement(request, patient_id):
 
 def submitMeasurementSuccess(request, patient_id):
     return HttpResponse("Measurement submitted by patient %s" % patient_id)
+
+def patientViewMeasurement(request, patient_id):
+    measurement_list = Measurement.objects.order_by('-submitted_date')
+    patient = Patient.objects.get(pk=patient_id)
+    context = {'measurement_list': measurement_list, 'patient_id': patient_id, 'patient_name': patient.patient_name}
+    return render(request, 'measurements/patientViewMeasurement.html', context)

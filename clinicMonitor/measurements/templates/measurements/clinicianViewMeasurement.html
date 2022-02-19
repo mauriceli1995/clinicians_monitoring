@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<h1>View Patient's Measurements</h1>
+
+<body>
+  <h2>Hello {{clinician_name}}</h2>
+  {% if result_list %}
+  <ul>
+    {% for patient, measurement in result_list.items %}
+    <h3>Patient Name: {{patient.patient_name}}</h3>
+    {% for item in measurement %}
+    <li>
+      <div>
+        Heart Rate (BPM): {{ item.heart_rate }}
+        <br>
+        Blood Pressure (mmHg): {{ item.blood_pressure }}
+        <br>
+        Body Weight(kg): {{ item.body_weight }}
+        <br>
+        Submitted Date: {{ item.submitted_date }}
+        <br><br>
+      </div>
+    </li>
+    {% endfor %}
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No measurements are recoards.</p>
+  {% endif %}
+</body>
+
+</html>

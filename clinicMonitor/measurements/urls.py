@@ -12,4 +12,6 @@ urlpatterns = [
     path('submitMeasurementSuccess/<int:patient_id>/', views.submitMeasurementSuccess, name='submitMeasurementSuccess'),
     # ex: /measurements/patientViewMeasurement/1/
     path('patientViewMeasurement/<int:patient_id>/', views.patientViewMeasurement, name='patientViewMeasurement'),
+    # ex: /measurements/clinicianViewMeasurement/1/
+    path('clinicianViewMeasurement/<int:clinician_id>/', views.clinicianViewMeasurement, name='clinicianViewMeasurement'),
 ]

@@ -1,10 +1,15 @@
 # Clinicians Monitoring
 ## Setup
-1) Install Django: `python -m pip install Django ` or `python3 -m pip install Django `
+1) Install Django: `python -m pip install Django` or `python3 -m pip install Django`
 2) Download & Install PostgreSQL (for Mac) from: https://postgresapp.com/downloads.html
 3) Initialize your psql database
 4) Head over to **clinicMonitor/settings.py** and find the **# Database** section, then update the content of `NAME`, `USER`, `PORT` according to your running psql database. (Refer: https://medium.com/cloud-tidbits/setup-django-with-postgres-app-on-macos-for-django-tutorials-22ed4dabfaf4)
 
+## Demo flow
+- Setup PostgreSQL as database
+- Run `python manage.py runserver` or `python3 manage.py runserver` in "clinicians_monitoring/clinicMonitor/" dictionary.
+- Login administrator (http://localhost:8000/admin/), and register new Clinician into the system. (for demo the email alert function, recommand to use real email address in clinician registration.)
+- Login clinicians (http://localhost:8000/clinicianLoginPage/)
 
 ## Administrators
 - Administrators web page: http://localhost:8000/admin/

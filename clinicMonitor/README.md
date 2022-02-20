@@ -9,12 +9,17 @@
 - Setup PostgreSQL as database
 - Run `python manage.py runserver` or `python3 manage.py runserver` in "clinicians_monitoring/clinicMonitor/" dictionary.
 - Login administrator (http://localhost:8000/admin/), and register new Clinician into the system. (for demo the email alert function, recommand to use real email address in clinician registration.)
-- Login clinicians (http://localhost:8000/users/clinicianLoginPage/)
+- Login clinician (http://localhost:8000/users/clinicianLoginPage/)
 - Click button "Register New Patient" to register new patient into the system.
 - Once compleled the form and click button "Register", thresholds setting page will be fetched.
 - After completed the thresholds setting for new patient, the patient's measurement detail page will be fetched.
 - Click button "Back" to homepage of Clinician to see all the patients' latest reading, who assigned under the clinician.
 - If there are any abnormal reading detect, the alert will be shown in the homepage (http://localhost:8000/measurements/clinicianViewMeasurements/<int:clinician_id>/) of the clinician
+- Logout clinician by clicking the "Logout" button in the homepage of clinician
+- Login patient (http://localhost:8000/users/patientLoginPage/)
+- Click button "Input New Measurement" to submit patient's reading into the system.
+- After completed the form of new measurement, click "Submit" button. If there are any input data outside the scope of the thresholds setting, an email alert will send to the clinician, then fetch to the homepage (http://localhost:8000/measurements/patientViewMeasurement/<int:patient_id>/) of the patient.
+- Logout patient by clicking the "Logout" button in the homepage of patient.
 
 ## Administrators
 - Administrators web page: http://localhost:8000/admin/

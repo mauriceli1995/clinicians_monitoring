@@ -7,7 +7,7 @@
 5) Creating an admin user by using `python manage.py createsuperuser` or `python3 manage.py createsuperuser`
 
 ## Demo flow
-- Setup PostgreSQL as database
+- Setup PostgreSQL as database & create an admin user.
 - Run `python manage.py runserver` or `python3 manage.py runserver` in "clinicians_monitoring/clinicMonitor/" dictionary.
 - Login administrator (http://localhost:8000/admin/), and register new Clinician into the system. (for demo the email alert function, recommand to use real email address in clinician registration.)
 - Login clinician (http://localhost:8000/users/clinicianLoginPage/)

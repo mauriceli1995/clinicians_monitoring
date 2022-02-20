@@ -37,4 +37,6 @@ The clinicians will be remotely monitoring the patients from a portal. This port
 - Handling the "OneToOneField" is the most challenge on me, because we need to handle two situations of it, e.g. if the data is not in database or there is data already in the database.
   
 3. What suggestions do you have for stakeholders in this context that they may not have thought of?
-- 
+- There is no function about updating personal information, like the email address and password. And in this user story, clinicians gain their account and password from the admin, and patients received their login information from clinicians, which is a security bug.
+- To create auth countdown after the user login success. For example, if the user does not do any operation after login, around 15 min, then the system should logout the user automatically.
+

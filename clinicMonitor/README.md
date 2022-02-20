@@ -4,6 +4,7 @@
 2) Download & Install PostgreSQL (for Mac) from: https://postgresapp.com/downloads.html
 3) Initialize your psql database
 4) Head over to **clinicMonitor/settings.py** and find the **# Database** section, then update the content of `NAME`, `USER`, `PORT` according to your running psql database. (Refer: https://medium.com/cloud-tidbits/setup-django-with-postgres-app-on-macos-for-django-tutorials-22ed4dabfaf4)
+5) Creating an admin user by using `python manage.py createsuperuser` or `python3 manage.py createsuperuser`
 
 ## Demo flow
 - Setup PostgreSQL as database

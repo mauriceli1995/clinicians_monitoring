@@ -28,7 +28,13 @@ The clinicians will be remotely monitoring the patients from a portal. This port
 # Questions
 
 1. If you had more time, what would you change or focus more on?
+- Discover more edge cases and improve the system performance.
+- Better UI design.
 
 2. Which part of the solution consumed the most amount of time?
-
+- Since it is my first time to develop application via Django, spent few days to learn it.
+- I knew how to develop application with trandition way, so it takes time for me to "convert" old way to the Django method.
+- Handling the "OneToOneField" is the most challenge on me, because we need to handle two situations of it, e.g. if the data is not in database or there is data already in the database.
+  
 3. What suggestions do you have for stakeholders in this context that they may not have thought of?
+- 

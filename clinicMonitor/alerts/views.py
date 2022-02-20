@@ -13,7 +13,10 @@ def checkAbnormalReading(request, patient_id):
     if Alert.objects.filter(patient = patient_id).exists():
         got_alert_row = True
     patient = Patient.objects.get(pk=patient_id)
-    measurement_list = Measurement.objects.filter(patient = patient_id).order_by('-submitted_date')[0]
+    try:
+        measurement_list = Measurement.objects.filter(patient = patient_id).order_by('-submitted_date')[0]
+    except:
+        return False
     threshold_list = Threshold.objects.get(patient = patient_id)
     alert = Alert()
     if (threshold_list.min_heart_rate <= measurement_list.heart_rate <= threshold_list.max_heart_rate) and (threshold_list.min_blood_pressure <= measurement_list.blood_pressure <= threshold_list.max_blood_pressure) and (threshold_list.min_body_weight <= measurement_list.body_weight <= threshold_list.max_body_weight):
@@ -38,7 +41,10 @@ def checkAbnormalReadingEmail(request, patient_id, clinician_id):
     if Alert.objects.filter(patient = patient_id).exists():
         got_alert_row = True
     patient = Patient.objects.get(pk=patient_id)
-    measurement_list = Measurement.objects.filter(patient = patient_id).order_by('-submitted_date')[0]
+    try:
+        measurement_list = Measurement.objects.filter(patient = patient_id).order_by('-submitted_date')[0]
+    except:
+        return False
     threshold_list = Threshold.objects.get(patient = patient_id)
     alert = Alert()
     clinician = Clinician.objects.get(pk = clinician_id)

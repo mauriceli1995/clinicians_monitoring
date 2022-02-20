@@ -19,12 +19,10 @@ def registerPatient(request, clinician_id):
             patient.password = request.POST.get('psw')
             patient.clinician = Clinician.objects.get(pk=clinician_id)
             patient.save()
-            return HttpResponseRedirect(reverse('users:registerSuccess', args=(clinician_id,))) 
+            patient_id = patient.id
+            return HttpResponseRedirect(reverse('thresholds:setThresholdsPage', args=(patient_id,))) 
     else:
         return render(request,'users/registerPatientPage.html')
-
-def registerSuccess(request, clinician_id):
-    return HttpResponse("Patient account created by %s" % clinician_id)
 
 def clinicianLoginPage(request):
     context = {}

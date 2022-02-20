@@ -26,7 +26,7 @@ def submitThreshold(request, patient_id):
                     max_body_weight = request.POST.get('maxBodyWeight'),
                     min_body_weight = request.POST.get('minBodyWeight'),
                     setting_date = timezone.now())
-                return HttpResponseRedirect(reverse('measurements:clinicianViewPatientDetail', args=(patient_id, clinician_id))) 
+                return HttpResponseRedirect(reverse('measurements:clinicianViewPatientDetail', args=(clinician_id, patient_id))) 
             else:
                 threshold=Threshold()
                 threshold.max_heart_rate = request.POST.get('maxHeartRate')
@@ -38,6 +38,6 @@ def submitThreshold(request, patient_id):
                 threshold.setting_date = timezone.now()
                 threshold.patient = Patient.objects.get(pk=patient_id)
                 threshold.save()
-                return HttpResponseRedirect(reverse('measurements:clinicianViewPatientDetail', args=(patient_id, clinician_id))) 
+                return HttpResponseRedirect(reverse('measurements:clinicianViewPatientDetail', args=(clinician_id, patient_id))) 
     else:
         return render(request,'thresholds/setThresholdsPage.html')

@@ -5,6 +5,9 @@
 
 <body>
   <h2>Hello {{clinician_name}}</h2>
+  <a href="{% url 'users:registerPatientPage' clinician_id %}">
+    <button>Register New Patient</button>
+  </a>
   {% for abnormal_patient in abnormal_patient_list %}
   <h3 style="color:red">Alert: {{abnormal_patient.patient_name}} got abnormal reading !!!!!</h3>
   {% endfor %}

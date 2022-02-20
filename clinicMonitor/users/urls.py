@@ -8,8 +8,6 @@ urlpatterns = [
     path('registerPatientPage/<int:clinician_id>/', views.registerPatientPage, name='registerPatientPage'),
     # ex: /users/registerPatient/1/
     path('registerPatient/<int:clinician_id>/', views.registerPatient, name='registerPatient'),
-    # ex: /users/registerSuccess/1/
-    path('registerSuccess/<int:clinician_id>/', views.registerSuccess, name='registerSuccess'),
     # ex: /users/clinicianLoginPage/
     path('clinicianLoginPage/', views.clinicianLoginPage, name='clinicianLoginPage'),
     # ex: /users/clinicianLoginProcess/

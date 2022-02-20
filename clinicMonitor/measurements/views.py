@@ -22,15 +22,12 @@ def submitMeasurement(request, patient_id):
             measurement.submitted_date = timezone.now()
             measurement.patient = Patient.objects.get(pk=patient_id)
             measurement.save()
-            return HttpResponseRedirect(reverse('measurements:submitMeasurementSuccess', args=(patient_id,))) 
+            patient = Patient.objects.get(pk=patient_id)
+            clinician_id = patient.clinician_id
+            checkAbnormalReadingEmail(request, patient_id, clinician_id)
+            return HttpResponseRedirect(reverse('measurements:patientViewMeasurement', args=(patient_id,))) 
     else:
         return render(request,'measurements/fillInMeasurementPage.html')
-
-def submitMeasurementSuccess(request, patient_id):
-    patient = Patient.objects.get(pk=patient_id)
-    clinician_id = patient.clinician_id
-    checkAbnormalReadingEmail(request, patient_id, clinician_id)
-    return HttpResponse("Measurement submitted by patient %s" % patient_id)
 
 def patientViewMeasurement(request, patient_id):
     selected_measurement_list = Measurement.objects.filter(patient = patient_id)
@@ -59,5 +56,5 @@ def clinicianViewPatientDetail(request, clinician_id, patient_id):
     selected_measurement_list = Measurement.objects.filter(patient = patient_id)
     measurement_list = selected_measurement_list.order_by('-submitted_date')
     patient = Patient.objects.get(pk=patient_id)
-    context = {'measurement_list': measurement_list, 'patient_name': patient.patient_name, 'patient_id': patient_id}
+    context = {'measurement_list': measurement_list, 'patient_name': patient.patient_name, 'patient_id': patient_id, 'clinician_id': clinician_id}
     return render(request, 'measurements/clinicianViewPatientDetail.html', context)

@@ -32,6 +32,9 @@
   {% else %}
   <p>No measurements are recoards.</p>
   {% endif %}
+  <a href="{% url 'users:clinicianLogout' clinician_id %}">
+    <button>Logout</button>
+  </a>
 </body>
 
 </html>

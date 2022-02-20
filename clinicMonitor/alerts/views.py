@@ -42,7 +42,6 @@ def checkAbnormalReadingEmail(request, patient_id, clinician_id):
     threshold_list = Threshold.objects.get(patient = patient_id)
     alert = Alert()
     clinician = Clinician.objects.get(pk = clinician_id)
-    print("clinician_email: ", clinician.email_address)
     if (threshold_list.min_heart_rate <= measurement_list.heart_rate <= threshold_list.max_heart_rate) and (threshold_list.min_blood_pressure <= measurement_list.blood_pressure <= threshold_list.max_blood_pressure) and (threshold_list.min_body_weight <= measurement_list.body_weight <= threshold_list.max_body_weight):
         if got_alert_row == False:
             alert.abnormal_found = False

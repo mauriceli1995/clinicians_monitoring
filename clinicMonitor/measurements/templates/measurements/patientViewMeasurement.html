@@ -5,6 +5,9 @@
 
 <body>
   <h3>Patient Name: {{patient_name}}</h3>
+  <a href="{% url 'measurements:fillInMeasurementPage' patient_id %}">
+    <button>Input New Measurement</button>
+  </a>
   {% if measurement_list %}
   <ul>
     {% for measurement in measurement_list %}
@@ -25,6 +28,9 @@
   {% else %}
   <p>No measurements are recoards.</p>
   {% endif %}
+  <a href="{% url 'users:patientLogout' patient_id %}">
+    <button>Logout</button>
+  </a>
 </body>
 
 </html>

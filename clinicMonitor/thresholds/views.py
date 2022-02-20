@@ -14,6 +14,8 @@ def setThresholdsPage(request, patient_id):
 
 def submitThreshold(request, patient_id):
     if request.method == 'POST':
+        patient = Patient.objects.get(pk=patient_id)
+        clinician_id = patient.clinician_id
         if request.POST.get('maxHeartRate') and request.POST.get('minHeartRate') and request.POST.get('maxBloodPressure') and request.POST.get('minBloodPressure') and request.POST.get('maxBodyWeight') and request.POST.get('minBodyWeight'):
             if Threshold.objects.filter(patient = patient_id).exists():
                 Threshold.objects.filter(patient = patient_id).update(
@@ -24,7 +26,7 @@ def submitThreshold(request, patient_id):
                     max_body_weight = request.POST.get('maxBodyWeight'),
                     min_body_weight = request.POST.get('minBodyWeight'),
                     setting_date = timezone.now())
-                return HttpResponseRedirect(reverse('thresholds:settingThresholdSuccess', args=(patient_id,))) 
+                return HttpResponseRedirect(reverse('measurements:clinicianViewPatientDetail', args=(patient_id, clinician_id))) 
             else:
                 threshold=Threshold()
                 threshold.max_heart_rate = request.POST.get('maxHeartRate')
@@ -36,9 +38,6 @@ def submitThreshold(request, patient_id):
                 threshold.setting_date = timezone.now()
                 threshold.patient = Patient.objects.get(pk=patient_id)
                 threshold.save()
-                return HttpResponseRedirect(reverse('thresholds:settingThresholdSuccess', args=(patient_id,))) 
+                return HttpResponseRedirect(reverse('measurements:clinicianViewPatientDetail', args=(patient_id, clinician_id))) 
     else:
         return render(request,'thresholds/setThresholdsPage.html')
-
-def settingThresholdSuccess(request, patient_id):
-    return HttpResponse("Threshold set for patient %s" % patient_id)

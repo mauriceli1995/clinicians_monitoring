@@ -9,7 +9,7 @@
 - Setup PostgreSQL as database
 - Run `python manage.py runserver` or `python3 manage.py runserver` in "clinicians_monitoring/clinicMonitor/" dictionary.
 - Login administrator (http://localhost:8000/admin/), and register new Clinician into the system. (for demo the email alert function, recommand to use real email address in clinician registration.)
-- Login clinicians (http://localhost:8000/clinicianLoginPage/)
+- Login clinicians (http://localhost:8000/users/clinicianLoginPage/)
 
 ## Administrators
 - Administrators web page: http://localhost:8000/admin/

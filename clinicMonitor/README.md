@@ -8,7 +8,7 @@
 
 ## Administrators
 - Administrators web page: http://localhost:8000/admin/
-- Administrators user name: maurice
+- Administrators user name: admin
 - Administrators password: Aa100200300
 - <ins>The administrator can register new clinician accounts into the system</ins>
 - (for demo the email alert function, recommand to use real email address in clinician registration.)
